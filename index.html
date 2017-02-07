@@ -24,40 +24,106 @@
     <h2 class="heading-2">Qualify for Amazon Gift Card</h2>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#solo" aria-controls="solo" role="tab" data-toggle="tab">Solo</a></li>
-    <li role="presentation"><a href="#team" aria-controls="team" role="tab" data-toggle="tab">Team</a></li>
+    <li role="presentation" class="active"><a class="left-tab" href="#solo" aria-controls="solo" role="tab" data-toggle="tab"><img class="gray" src="images/icon-user.png"><img class="white" src="images/icon-user-active.png">Solo</a></li>
+    <li role="presentation"><a class="right-tab" href="#team" aria-controls="team" role="tab" data-toggle="tab"><img class="gray" src="images/icon-team.png"><img class="white" src="images/icon-team-active.png">Team</a></li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="solo">
+    <div role="tabpanel" class="tab-pane fade in active" id="solo">
     <div class="plan plan-left">
-    <div class="heading-active">Monthly</div>
-    <div class="trieal">14 day free trial</div>
+    <div class="plan-inactive">
+    <div class="plan-heading">Monthly</div>
+    <div class="trial"><span>14 day free trial</span></div>
     <div class="price-tab">
     <div class="price">$25</div>
     <div class="price-text">per month</div>
-    </div>
-    </div>
-    <div class="plan plan-right">
-    <div class="heading-active">Monthly</div>
-    <div class="trieal">14 day free trial</div>
-    <div class="price-tab">
-    <div class="price">$25</div>
-    <div class="price-text">per month</div>
-    </div>
     </div>
     </div>
     
-    <div role="tabpanel" class="tab-pane" id="team">Team</div>
+    <div class="plan-hover">
+    <div class="plan-heading">Monthly</div>
+    <div class="trial"><span>14 day free trial</span></div>
+    <div class="price-tab">
+    <div class="price">$25</div>
+    <div class="price-text">per month</div>
+    </div>
+    </div>
+    
+    </div>
+    <div class="plan plan-right">
+    <div class="plan-inactive anual">
+    <div class="plan-heading">Anual</div>
+    <div class="trial"><span>14 day free trial</span></div>
+    <div class="price-tab">
+    <div class="price">$15</div>
+    <div class="price-text">per month</div>
+    </div>
+    </div>
+    
+    <div class="plan-hover anual">
+    <div class="plan-heading">Anual</div>
+    <div class="trial"><span>14 day free trial</span></div>
+    <div class="price-tab">
+    <div class="price">$15</div>
+    <div class="price-text">per month</div>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+    
+    <div role="tabpanel" class="tab-pane fade" id="team">
+    <div class="plan plan-left">
+    <div class="plan-inactive">
+    <div class="plan-heading">Monthly</div>
+    <div class="trial"><span>14 day free trial</span></div>
+    <div class="price-tab">
+    <div class="price">$60</div>
+    <div class="price-text">per month</div>
+    </div>
+    </div>
+    
+    <div class="plan-hover">
+    <div class="plan-heading">Monthly</div>
+    <div class="trial"><span>14 day free trial</span></div>
+    <div class="price-tab">
+    <div class="price">$60</div>
+    <div class="price-text">per month</div>
+    </div>
+    </div>
+    
+    </div>
+    <div class="plan plan-right">
+    <div class="plan-inactive anual">
+    <div class="plan-heading">Anual</div>
+    <div class="trial"><span>14 day free trial</span></div>
+    <div class="price-tab">
+    <div class="price">$40</div>
+    <div class="price-text">per month</div>
+    </div>
+    </div>
+    
+    <div class="plan-hover anual">
+    <div class="plan-heading">Anual</div>
+    <div class="trial"><span>14 day free trial</span></div>
+    <div class="price-tab">
+    <div class="price">$40</div>
+    <div class="price-text">per month</div>
+    </div>
+    </div>
+    
+    </div>
+    </div>
   </div>
-  <div class="todays-total">Today’s total: <del>$25 first month</del> <span class="trial">14 day free trial</span> <span class="amount">$0</span></div>
+  <div class="clearfix"></div>
+  <div class="todays-total">Today’s total: <del>$25 first month</del> <span class="trial-days">14 day free trial</span> <span class="amount">$0</span></div>
 <form>
 <h3>account information</h3>
 <p><input type="text" name="name" placeholder="Full Name" class="fullname" required></p>
-<p><input type="email" name="email" placeholder="Email" class="email" required> <input type="password" name="password" placeholder="Password" class="password" required></p>
-<h3>Billing Information <img src="images/cards.png" alt=""></h3>
-<p><input type="text" name="card_number" placeholder="Credit Card Number" class="credit_card" required> <input type="text" name="mm_yy" class="mm_yy" placeholder="MM/YY" required> <input type="text" name="cvv" placeholder="CVV" class="cvv" required></p>
+<p><input type="email" name="email" placeholder="Email" class="email" required><span class="spacer"></span><input type="password" name="password" placeholder="Password" class="password" required></p>
+<h3><span>Billing Information</span> <img src="images/cards.png" alt=""></h3>
+<p><input type="text" name="card_number" placeholder="Credit Card Number" class="credit_card" required><span class="spacer"></span><input type="text" name="mm_yy" class="mm_yy" placeholder="MM/YY" required><span class="spacer"></span><input type="text" name="cvv" placeholder="CVV" class="cvv" required></p>
 <p><input type="text" name="zip" placeholder="Billing Zipcode" class="zip"></p>
 <p><input type="submit" value="Start Free Trial" class="btn-submit"></p>
 </form>
@@ -71,5 +137,18 @@ By clicking the “Complete Order” button, you accept our terms and your subsc
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+		$('.plan').hover(
+		  function() {
+    $( this ).find('.plan-hover').fadeIn();
+  }, function() {
+    $( this ).find('.plan-hover').fadeOut();
+  }
+		
+		);
+		
+		});
+    </script>
   </body>
 </html>
