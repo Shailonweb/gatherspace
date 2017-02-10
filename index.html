@@ -18,14 +18,14 @@
     <![endif]-->
   </head>
   <body>
-    <header><div class="header-container"><img src="images/logo.png"></div></header>
+    <header><div class="header-container"><img src="images/logo.png" class="logo-lg"><img src="images/logo-retina.png" class="logo-sm"></div></header>
     <div class="container">
     <h1 class="main-heading">Start My <span>14 Day Free Trial</span> Now!</h1>
     <h2 class="heading-2">Qualify for Amazon Gift Card</h2>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a class="left-tab" href="#solo" aria-controls="solo" role="tab" data-toggle="tab"><img class="gray" src="images/icon-user.png"><img class="white" src="images/icon-user-active.png">Solo</a></li>
-    <li role="presentation"><a class="right-tab" href="#team" aria-controls="team" role="tab" data-toggle="tab"><img class="gray" src="images/icon-team.png"><img class="white" src="images/icon-team-active.png">Team</a></li>
+    <li role="presentation" class="active"><a class="left-tab" href="#solo" aria-controls="solo" role="tab" data-toggle="tab"><img class="gray icon-lg" src="images/icon-user.png"><img class="white icon-lg" src="images/icon-user-active.png"><img class="gray icon-sm" src="images/icon-user-retina.png"><img class="white icon-sm" src="images/icon-user-active-retina.png">Solo</a></li>
+    <li role="presentation"><a class="right-tab" href="#team" aria-controls="team" role="tab" data-toggle="tab"><img class="gray icon-lg" src="images/icon-team.png"><img class="white icon-lg" src="images/icon-team-active.png"><img class="gray icon-sm" src="images/icon-team-retina.png"><img class="white icon-sm" src="images/icon-team-active-retina.png">Team</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -61,7 +61,7 @@
     </div>
     </div>
     
-    <div class="plan-hover anual">
+    <div class="plan-hover anual" style="display:block">
     <div class="plan-heading">Anual</div>
     <div class="trial"><span>14 day free trial</span></div>
     <div class="price-tab">
@@ -104,7 +104,7 @@
     </div>
     </div>
     
-    <div class="plan-hover anual">
+    <div class="plan-hover anual" style="display:block">
     <div class="plan-heading">Anual</div>
     <div class="trial"><span>14 day free trial</span></div>
     <div class="price-tab">
@@ -122,31 +122,58 @@
 <h3>account information</h3>
 <p><input type="text" name="name" placeholder="Full Name" class="fullname" required></p>
 <p><input type="email" name="email" placeholder="Email" class="email" required><span class="spacer"></span><input type="password" name="password" placeholder="Password" class="password" required></p>
-<h3><span>Billing Information</span> <img src="images/cards.png" alt=""></h3>
-<p><input type="text" name="card_number" placeholder="Credit Card Number" class="credit_card" required><span class="spacer"></span><input type="text" name="mm_yy" class="mm_yy" placeholder="MM/YY" required><span class="spacer"></span><input type="text" name="cvv" placeholder="CVV" class="cvv" required></p>
-<p><input type="text" name="zip" placeholder="Billing Zipcode" class="zip"></p>
+<h3><span>Billing Information</span> <img src="images/cards.png" class="cards-lg" alt=""><img src="images/cards-retina.png" class="cards-sm" alt=""></h3>
+<p class="num"><input type="number" name="card_number num" placeholder="Credit Card Number" class="credit_card num"  required><span class="spacer"></span><input type="number" name="mm_yy" class="mm_yy" placeholder="MM/YY" required><span class="spacer"></span><input type="number" name="cvv" placeholder="CVV" class="cvv num" required></p>
+<p class="num"><input type="number" name="zip" placeholder="Billing Zipcode" required></p>
 <p><input type="submit" value="Start Free Trial" class="btn-submit"></p>
 </form>
 <div class="description">
 By clicking the “Complete Order” button, you accept our terms and your subscription of $15/mo will renew monthly starting after your trial period and you will be charged a monthly fee until you cancel. Cancel anytime by emailing support@gatherspace.com.
 </div>
 <div class="security">
-<img src="images/icons-security.png" alt="">
+<img src="images/icons-security.png" class="icons-security-lg" alt=""><img src="images/icons-security-retina.png" class="icons-security-sm" alt="">
 </div>
 
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script
+			  src="https://code.jquery.com/jquery-3.1.1.min.js"
+			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous"></script>
+
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
-		$('.plan').hover(
-		  function() {
-    $( this ).find('.plan-hover').fadeIn();
-  }, function() {
-    $( this ).find('.plan-hover').fadeOut();
-  }
+	$('.plan.plan-left').click(
+	function() {
+    $( this ).find('.plan-hover').show();
+	
+		$('.plan-right .plan-hover').hide();
 		
-		);
+  });
+  $('.plan.plan-right').click(
+	function() {
+    $( this ).find('.plan-hover').show();
+	
+		$('.plan-left .plan-hover').hide();
+		
+  });
+		$('input[placeholder]').on('focus',function(){
+    var $this = $(this);
+    $this.data('placeholder',$this.prop('placeholder'));
+    $this.removeAttr('placeholder')
+}).on('blur',function(){
+    var $this = $(this);
+    $this.prop('placeholder',$this.data('placeholder'));
+});
+	
+	$('.left-tab, .right-tab').click(function(){
+		$('.plan-left .plan-hover').hide();
+		$('.anual.plan-hover').show();
+		});
+		
+
+  $('.num').on('keydown', 'input', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
+
 		
 		});
     </script>
